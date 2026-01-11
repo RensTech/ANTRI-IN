@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTRIIN - Sistem Antrian Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-queue"></i>
+                <h1>ANTRIIN</h1>
+            </div>
+            <p class="tagline">Sistem Antrian Digital Sederhana</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h2>Atur Antrian dengan Mudah dan Efisien</h2>
+                    <p>Solusi digital untuk UMKM, klinik kecil, dan layanan publik. Tanpa ribet, langsung pakai!</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Cepat & Ringan</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsif</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Mudah Digunakan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-action">
+                    <div class="queue-card">
+                        <h3>Ambil Nomor Antrian</h3>
+                        <p>Klik tombol di bawah untuk mendapatkan nomor antrian Anda</p>
+                        
+                        <div class="queue-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar-day"></i>
+                                <div>
+                                    <span class="label">Hari Ini</span>
+                                    <span class="value" id="todayDate">-</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <span class="label">Dalam Antrian</span>
+                                    <span class="value" id="queueCount">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button id="getNumberBtn" class="btn-primary">
+                            <i class="fas fa-ticket-alt"></i>
+                            AMBIL NOMOR ANTRIAN
+                        </button>
+                        
+                        <!-- Bagian yang Diperbaiki -->
+                        <div id="userQueueInfo" class="user-queue-info hidden">
+                            <h4><i class="fas fa-ticket-alt"></i> Nomor Antrian Anda:</h4>
+                            <div class="queue-number" id="userQueueNumber">-</div>
+                            <div class="queue-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-list-ol"></i>
+                                    <div>
+                                        <span class="label">Posisi Antrian</span>
+                                        <span class="value" id="userQueuePosition">-</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <span class="label">Estimasi Tunggu</span>
+                                        <span class="value" id="userWaitTime">-</span> <small>menit</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="viewStatusBtn" class="btn-secondary">
+                                <i class="fas fa-sync-alt"></i> PERBARUI STATUS
+                            </button>
+                            <p class="queue-note">
+                                <i class="fas fa-info-circle"></i>
+                                Simpan nomor antrian Anda untuk mengecek status
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Admin Access -->
+            <!-- Ganti bagian Admin Access di index.html -->
+            <div class="admin-access">
+                <p>Admin? <a href="login.html">Login ke Dashboard</a></p>
+            </div>
+            
+            <!-- How It Works -->
+            <div class="how-it-works">
+                <h3>Cara Kerja ANTRIIN</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h4>Ambil Antrian</h4>
+                        <p>Klik tombol "Ambil Nomor Antrian"</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-clock"></i>
+                        <h4>Tunggu Panggilan</h4>
+                        <p>Pantau posisi antrian Anda</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-bullhorn"></i>
+                        <h4>Dipanggil</h4>
+                        <p>Admin akan memanggil nomor Anda</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-user-check"></i>
+                        <h4>Layanan Selesai</h4>
+                        <p>Admin akan panggil antrian berikutnya</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ANTRIIN &copy; 2026 - Sistem Antrian Digital Sederhana</p>
+            <p class="footer-note">Cocok untuk UMKM, klinik kecil, dan layanan publik</p>
+        </footer>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTRIIN - Dashboard Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Admin Header dengan Logout -->
+        <header class="admin-header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-home"></i>
+                Halaman Utama
+            </a>
+            <div class="logo">
+                <i class="fas fa-queue"></i>
+                <h1>ANTRIIN</h1>
+            </div>
+            <div class="admin-controls-header">
+                <div class="admin-badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin Panel</span>
+                </div>
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- Admin Main Content -->
+        <main class="main-content">
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3>Antrian Saat Ini</h3>
+                    <div class="value" id="currentQueueDisplay">-</div>
+                    <div class="sub-value">Sedang dilayani</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Menunggu</h3>
+                    <div class="value" id="waitingCount">0</div>
+                    <div class="sub-value">Orang dalam antrian</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Selesai Hari Ini</h3>
+                    <div class="value" id="completedCount">0</div>
+                    <div class="sub-value">Antrian selesai</div>
+                </div>
+            </div>
+
+            <div class="admin-controls">
+                <h2><i class="fas fa-cogs"></i> Kontrol Antrian</h2>
+                <div class="control-buttons">
+                    <button id="callNextBtn" class="btn-primary">
+                        <i class="fas fa-bullhorn"></i>
+                        PANGGIL ANTRIAN BERIKUTNYA
+                    </button>
+                    <button id="resetQueueBtn" class="btn-danger">
+                        <i class="fas fa-redo"></i>
+                        RESET ANTRIAN HARIAN
+                    </button>
+                </div>
+                <p class="admin-note">
+                    <i class="fas fa-info-circle"></i>
+                    Reset antrian akan menghapus semua data antrian hari ini dan mengembalikan nomor ke 1.
+                </p>
+            </div>
+
+            <div class="queue-list">
+                <h2><i class="fas fa-list-ol"></i> Daftar Antrian Menunggu</h2>
+                <div id="waitingQueue">
+                    <div class="empty-queue">
+                        <i class="fas fa-users-slash"></i>
+                        <p>Tidak ada antrian yang menunggu</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="system-info">
+                <h3><i class="fas fa-info-circle"></i> Informasi Sistem</h3>
+                <p>ANTRIIN v1.0 - Sistem antrian digital sederhana untuk UMKM dan layanan kecil.</p>
+                <p>Rata-rata waktu layanan: <strong>5 menit</strong> per antrian.</p>
+                <p>Login terakhir: <span id="lastLoginTime">-</span></p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ANTRIIN Admin Panel &copy; 2024</p>
+            <p class="footer-note">Login sebagai: <span id="loggedInUser">admin</span></p>
+        </footer>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
